@@ -187,9 +187,6 @@
 
                                 if (mstrData[i].headers[j].attributeSelector.tid === me.zonesModel.getDropZoneObjectsByName(DROP_ZONES.MANAGER)[0].id) {
                                     managerName = mstrData[i].headers[0].name
-                                    selectorData.push(
-                                        mstrData[i].headers[j].attributeSelector
-                                    );
                                 }
 
                                 if (mstrData[i].headers[j].attributeSelector.tid === me.zonesModel.getDropZoneObjectsByName(DROP_ZONES.EMPLOYEE)[0].id) {
@@ -203,7 +200,6 @@
                                 }
 
                             }
-
 
                             // For each orgchart box, provide the name, manager, and tooltip to show.
                             visData.addRows([

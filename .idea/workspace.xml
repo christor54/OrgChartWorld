@@ -27,11 +27,11 @@
       <file leaf-file-name="OrgCharWorld.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/mojo/js/source/OrgCharWorld.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5696721">
-              <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.704918">
+              <caret line="194" column="11" selection-start-line="194" selection-start-column="11" selection-end-line="194" selection-end-column="11" />
               <folding>
-                <marker date="1489444055000" expanded="true" signature="9242:9255" placeholder="..." />
-                <marker date="1489444055000" expanded="true" signature="9295:9328" placeholder="..." />
+                <marker date="1489444393000" expanded="true" signature="9066:9079" placeholder="..." />
+                <marker date="1489444393000" expanded="true" signature="9119:9152" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -365,8 +365,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1489444055000" expanded="true" signature="9242:9255" placeholder="..." />
-            <marker date="1489444055000" expanded="true" signature="9295:9328" placeholder="..." />
+            <marker date="1489444393000" expanded="true" signature="9066:9079" placeholder="..." />
+            <marker date="1489444393000" expanded="true" signature="9119:9152" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -469,11 +469,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/mojo/js/source/OrgCharWorld.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5696721">
-          <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.704918">
+          <caret line="194" column="11" selection-start-line="194" selection-start-column="11" selection-end-line="194" selection-end-column="11" />
           <folding>
-            <marker date="1489444055000" expanded="true" signature="9242:9255" placeholder="..." />
-            <marker date="1489444055000" expanded="true" signature="9295:9328" placeholder="..." />
+            <marker date="1489444393000" expanded="true" signature="9066:9079" placeholder="..." />
+            <marker date="1489444393000" expanded="true" signature="9119:9152" placeholder="..." />
           </folding>
         </state>
       </provider>
