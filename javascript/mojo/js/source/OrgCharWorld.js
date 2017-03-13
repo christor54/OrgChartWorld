@@ -23,6 +23,8 @@
             plot:function(){
 
                 var me = this;
+                this.addUseAsFilterMenuItem();
+
                 this.domNode.style.overflow = "auto";
 
                 if (!is10Point2()) {
@@ -49,6 +51,13 @@
                     BGFILLCOLOR: 'bgFillColor',
                     SELECTIONFILLCOLOR: 'selectionFillColor'
                 };
+
+                var DROP_ZONES = {
+                    MANAGER: 'Manager',
+                    EMPLOYEE:'Employee',
+                    TITLE:'Title'
+                };
+
 
                 if (!google.visualization || !google.visualization.OrgChart) {
                     google.load('visualization', '1.1', {
@@ -79,7 +88,7 @@
                     //Draw chart with the visData and the chart options
                     chart.draw(visData, chartOptions);
 
-                    //Add an event to support filtering capability when being the target of a filter
+                    //Add an event to support "Use as a filter" capability
                     google.visualization.events.addListener(chart, 'select', function () {
                         var sel = chart.getSelection();
                         //ensure selection isnt empty
@@ -162,52 +171,37 @@
                     function processMstrData (mstrData) {
                         /*  Process the mstr json into a json format that the chart requires  */
 
-
+                        console.p
                         var visData = new google.visualization.DataTable();
                         visData.addColumn('string', 'Name');
                         visData.addColumn('string', 'Manager');
                         visData.addColumn('string', 'ToolTip');
 
-                        var currentAttributeName = "";
-
                         for (i = 0; i < mstrData.length; i++) {
-                            currentAttributeName = mstrData[i].headers[0].tname;
-                            var employeeManagerName = mstrData[i].headers[0].name;
+                            var managerName = "";
                             var employeeName = "";
                             var employeeTitle = "";
 
-                            var counter = 0;
 
-                            for (j = 1; j < mstrData[i].headers.length; j++) {
+                            for (j = 0; j < mstrData[i].headers.length; j++) {
 
-                                if (mstrData[i].headers[j].tname != currentAttributeName) {
-                                    currentAttributeName = mstrData[i].headers[j].tname;
-                                    counter++;
-
-                                    if (counter == 1) {
-
-                                        employeeName = mstrData[i].headers[j].name;
-
-                                        selectorData.push(
-                                            mstrData[i].headers[j].attributeSelector
-                                        );
-
-                                    } else {
-                                        employeeTitle = mstrData[i].headers[j].name;
-                                        break;
-                                    }
-
-                                } else {
-                                    if (counter < 1) {
-                                        employeeManagerName = employeeManagerName + ", " + mstrData[i].headers[j].name;
-                                    } else if (counter == 1) {
-
-                                        employeeName = employeeName + ", " + mstrData[i].headers[j].name;
-                                    } else {
-                                        employeeTitle = employeeTitle + ", " + mstrData[i].headers[j].name;
-                                        break;
-                                    }
+                                if (mstrData[i].headers[j].attributeSelector.tid === me.zonesModel.getDropZoneObjectsByName(DROP_ZONES.MANAGER)[0].id) {
+                                    managerName = mstrData[i].headers[0].name
+                                    selectorData.push(
+                                        mstrData[i].headers[j].attributeSelector
+                                    );
                                 }
+
+                                if (mstrData[i].headers[j].attributeSelector.tid === me.zonesModel.getDropZoneObjectsByName(DROP_ZONES.EMPLOYEE)[0].id) {
+                                    employeeName = mstrData[i].headers[j].name;
+                                    selectorData.push(
+                                                mstrData[i].headers[j].attributeSelector
+                                            );
+                                }
+                                if (mstrData[i].headers[j].attributeSelector.tid === me.zonesModel.getDropZoneObjectsByName(DROP_ZONES.TITLE)[0].id) {
+                                    employeeTitle = mstrData[i].headers[j].name;
+                                }
+
                             }
 
 
@@ -217,7 +211,7 @@
                                 [{
                                     v: employeeName,
                                     f: '<div style="color:#444649">' + employeeName + '</div><div style="color:DarkGray; font-style:italic">' + employeeTitle + '</div>'
-                                }, employeeManagerName, employeeTitle]
+                                }, managerName, employeeTitle]
 
                             ]);
 
